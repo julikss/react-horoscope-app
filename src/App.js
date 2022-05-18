@@ -1,25 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
+import { Navbar, NavbarBrand } from 'reactstrap';
+import List from './components/ListComponent';
+import { SIGNS } from './shared/signs';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      signs: SIGNS
+    };    
+  }
+  
+  render() {
+    return (
+      <div>
+        <Navbar className="bg-dark">
+          <div className="container">
+            <NavbarBrand className="text-white">Horoscope:)</NavbarBrand>
+          </div>
+        </Navbar>
+        <div className="container">
+            <h4 className="text-dark mb-5 mt-5">Just choose a card with your zodiac sign</h4>
+          </div>
+        <List signs={this.state.signs} />
+      </div>
+    );
+  }
 }
 
 export default App;
