@@ -30,7 +30,7 @@ class List extends Component {
         const list = this.props.signs.map((sign) => {
             return (
                 <div className="col-12 col-md-2 mb-3">
-                    <Card key={sign.id} 
+                    <Card key={sign.id} style={{cursor: "pointer"}}
                         onClick={() => this.onSignSelect(sign)}>
                         <CardImg height="250px" src={sign.image} alt={sign.name} />
                     </Card>
